@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PT Indo Kreasi — Studio Game Development Indonesia</title>
+  <meta name="description" content="PT Indo Kreasi adalah studio pengembang game terkemuka di Indonesia yang menciptakan karya kelas dunia dengan teknologi next-gen dan kekayaan budaya Nusantara.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Sound / Canvas Background -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
+        <div class="logo-text">
+          <span class="brand-name">INDO KREASI</span>
+          <span class="brand-sub">GAME STUDIO</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#hero" class="nav-link active">Beranda</a>
+        <a href="#games" class="nav-link">Game Kami</a>
+        <a href="#about" class="nav-link">Tentang Studio</a>
+        <a href="#tech" class="nav-link">Teknologi</a>
+        <a href="#careers" class="nav-link">Karir</a>
+        <a href="#contact" class="nav-link">Kontak</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="sound-btn" class="icon-btn" title="Toggle Efek Suara">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">Hubungi Kami</a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span> Studio Game Terdepan di Indonesia
+      </div>
+      <h1 class="hero-title">
+        Membawa Imajinasi <span class="gradient-text">Nusantara</span> ke Panggung Global
+      </h1>
+      <p class="hero-desc">
+        PT Indo Kreasi merancang pengalaman gaming interaktif kelas dunia yang memadukan visual memukau, teknologi Next-Gen Unreal Engine, dan narasi yang tak terlupakan.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#games" class="btn btn-primary">
+          <i class="fa-solid fa-play"></i> Jelajahi Karya Kami
+        </a>
+        <button class="btn btn-outline" id="open-showreel-btn">
+          <i class="fa-solid fa-circle-play"></i> Tonton Showreel 2026
+        </button>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-num" data-target="15">0</span><span class="stat-suffix">M+</span>
+          <span class="stat-label">Pemain Global</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" data-target="4">0</span><span class="stat-suffix"> Judul</span>
+          <span class="stat-label">Game Dirilis</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" data-target="8">0</span><span class="stat-suffix"> Tropi</span>
+          <span class="stat-label">Penghargaan Global</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" data-target="65">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Kreator Berbakat</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Games Showcase -->
+  <section class="section games-section" id="games">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">PORTOFOLIO GAME</span>
+        <h2 class="section-title">Karya Unggulan <span class="gradient-text">PT Indo Kreasi</span></h2>
+        <p class="section-desc">Dari petualangan mitologi epik hingga distopia cyberpunk, temukan dunia imajinatif buatan kreator Tanah Air.</p>
+        
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">Semua Game</button>
+          <button class="filter-btn" data-filter="rpg">Action RPG</button>
+          <button class="filter-btn" data-filter="scifi">Cyberpunk / Sci-Fi</button>
+          <button class="filter-btn" data-filter="party">Party / Casual</button>
+          <button class="filter-btn" data-filter="horror">Folk Horror</button>
+        </div>
+      </div>
+
+      <div class="games-grid" id="games-grid">
+        <!-- Game 1: Nusantara -->
+        <article class="game-card" data-category="rpg" data-id="nusantara">
+          <div class="game-cover-wrapper">
+            <img src="assets/nusantara.jpg" alt="Nusantara: Chronicle of the Ancients" class="game-cover" loading="lazy">
+            <span class="game-status status-released">Tersedia Sekarang</span>
+            <div class="game-platforms">
+              <span title="PC Steam"><i class="fa-brands fa-steam"></i></span>
+              <span title="PlayStation 5"><i class="fa-brands fa-playstation"></i></span>
+              <span title="Xbox Series X"><i class="fa-brands fa-xbox"></i></span>
+            </div>
+          </div>
+          <div class="game-info">
+            <div class="game-meta">
+              <span class="game-genre">Action RPG • Open World</span>
+              <span class="game-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+            </div>
+            <h3 class="game-name">Nusantara: Chronicle of the Ancients</h3>
+            <p class="game-synopsis">
+              Eksplorasi kepulauan fantasi agung terinspirasi era keemasan Majapahit. Kendalikan kekuatan pusaka keris mistis dalam pertarungan real-time melawan entitas kuno.
+            </p>
+            <div class="game-card-footer">
+              <button class="btn btn-card-details view-detail-btn" data-game="nusantara">
+                Lihat Detail <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Game 2: Cyber Garuda -->
+        <article class="game-card" data-category="scifi" data-id="cyber_garuda">
+          <div class="game-cover-wrapper">
+            <img src="assets/cyber_garuda.jpg" alt="Cyber Garuda 2099" class="game-cover" loading="lazy">
+            <span class="game-status status-hot">Best Seller</span>
+            <div class="game-platforms">
+              <span title="PC Steam"><i class="fa-brands fa-steam"></i></span>
+              <span title="PlayStation 5"><i class="fa-brands fa-playstation"></i></span>
+              <span title="Xbox Series X"><i class="fa-brands fa-xbox"></i></span>
+            </div>
+          </div>
+          <div class="game-info">
+            <div class="game-meta">
+              <span class="game-genre">Cyberpunk • Mech Shooter</span>
+              <span class="game-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <h3 class="game-name">Cyber Garuda 2099</h3>
+            <p class="game-synopsis">
+              Terbang melintasi gedung pencakar langit Neo-Jakarta dengan sayap jet cybernetic. Pertarungan taktis serba cepat melawan sindikat korporasi gelap di tengah hujan neon.
+            </p>
+            <div class="game-card-footer">
+              <button class="btn btn-card-details view-detail-btn" data-game="cyber_garuda">
+                Lihat Detail <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Game 3: Warung Dash -->
+        <article class="game-card" data-category="party" data-id="warung_dash">
+          <div class="game-cover-wrapper">
+            <img src="assets/warung_dash.jpg" alt="Warung Dash: Midnight Tycoon" class="game-cover" loading="lazy">
+            <span class="game-status status-released">Multiplayer Co-op</span>
+            <div class="game-platforms">
+              <span title="Nintendo Switch"><i class="fa-solid fa-gamepad"></i></span>
+              <span title="PC Steam"><i class="fa-brands fa-steam"></i></span>
+              <span title="Mobile iOS & Android"><i class="fa-brands fa-apple"></i> <i class="fa-brands fa-android"></i></span>
+            </div>
+          </div>
+          <div class="game-info">
+            <div class="game-meta">
+              <span class="game-genre">Co-op Party • Cooking Tycoon</span>
+              <span class="game-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+            </div>
+            <h3 class="game-name">Warung Dash: Midnight Tycoon</h3>
+            <p class="game-synopsis">
+              Game masak heboh 4-pemain! Racik sate madura, martabak manis, dan es cendol di pasar malam sebelum pelanggan kehabisan kesabaran. Penuh tawa & tantangan seru!
+            </p>
+            <div class="game-card-footer">
+              <button class="btn btn-card-details view-detail-btn" data-game="warung_dash">
+                Lihat Detail <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Game 4: Kabut Keramat -->
+        <article class="game-card" data-category="horror" data-id="kabut_keramat">
+          <div class="game-cover-wrapper">
+            <img src="assets/kabut_keramat.jpg" alt="Kabut Keramat: Sacred Mist" class="game-cover" loading="lazy">
+            <span class="game-status status-upcoming">Early Access Segera</span>
+            <div class="game-platforms">
+              <span title="PC Steam"><i class="fa-brands fa-steam"></i></span>
+              <span title="PlayStation 5"><i class="fa-brands fa-playstation"></i></span>
+            </div>
+          </div>
+          <div class="game-info">
+            <div class="game-meta">
+              <span class="game-genre">Psychological Folk Horror</span>
+              <span class="game-rating"><i class="fa-solid fa-star"></i> 4.7</span>
+            </div>
+            <h3 class="game-name">Kabut Keramat: Sacred Mist</h3>
+            <p class="game-synopsis">
+              Telusuri desa berkabut terisolir di lereng gunung mistis dengan lentera minyak dan kamera antik. Ungkap ritual terlarang yang membungkam penduduk desa selama ratusan tahun.
+            </p>
+            <div class="game-card-footer">
+              <button class="btn btn-card-details view-detail-btn" data-game="kabut_keramat">
+                Lihat Detail <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Studio Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-subtitle">TENTANG KAMI</span>
+          <h2 class="section-title">Dedikasi Untuk Seni & <span class="gradient-text">Inovasi Interaktif</span></h2>
+          <p class="about-lead">
+            Didirikan pada tahun 2018 di Bandung dan bertumbuh dengan studio satelit di Jakarta, <strong>PT Indo Kreasi</strong> adalah studio game independen dengan ambisi AAA.
+          </p>
+          <p class="about-desc">
+            Kami percaya bahwa Indonesia memiliki kekayaan cerita, folklore, dan imajinasi visual yang belum tereksplorasi di industri hiburan dunia. Misi kami adalah membawakan narasi lokal dengan standar kualitas grafis, audio, dan mekanik setara game internasional.
+          </p>
+
+          <div class="pillars-grid">
+            <div class="pillar-item">
+              <div class="pillar-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <div>
+                <h4>Kreativitas Orisinal</h4>
+                <p>Menciptakan IP orisinal berdaya pikat tinggi dengan riset mendalam budaya lokal.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon"><i class="fa-solid fa-microchip"></i></div>
+              <div>
+                <h4>Teknologi Terdepan</h4>
+                <p>Mengadopsi Unreal Engine 5 Nanite & Lumen, Motion Capture studio, dan spatial audio.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+              <div>
+                <h4>Zero-Crunch Culture</h4>
+                <p>Menghargai kesejahteraan kreator kami dengan jadwal produksi terstruktur dan sehat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-card-banner">
+          <div class="banner-glass">
+            <div class="banner-badge"><i class="fa-solid fa-award"></i> Penghargaan Terbaru</div>
+            <h3>Best Visual & Storytelling Award</h3>
+            <p>Tokyo Indie Game Fest 2025 & SEA Game Awards Winner untuk judul <em>Nusantara: Chronicle of the Ancients</em>.</p>
+            <div class="quote-box">
+              <p>"PT Indo Kreasi membuktikan bahwa developer Indonesia siap bersaing di kancah global dengan standar AAA."</p>
+              <span>— IGN Southeast Asia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology & Engine Stack -->
+  <section class="section tech-section" id="tech">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">TEKNOLOGI & PIPELINE</span>
+        <h2 class="section-title">Didukung Perangkat <span class="gradient-text">Generasi Terbaru</span></h2>
+        <p class="section-desc">Pipeline produksi kami menggabungkan tool industri terbaik untuk menghasilkan aset fidelitas tinggi dan performa stabil.</p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-cube"></i></div>
+          <h3>Unreal Engine 5</h3>
+          <p>Memanfaatkan Lumen, Nanite, dan Chaos Physics untuk grafis fotorealistis dan pencahayaan dinamis real-time.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-cubes"></i></div>
+          <h3>Unity 6</h3>
+          <p>Framework modular untuk performa cross-platform cepat di Nintendo Switch, PC, dan Mobile.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-person-running"></i></div>
+          <h3>Motion Capture Studio</h3>
+          <p>Studio penangkapan gerak in-house 24 kamera untuk animasi karakter dan pertarungan sinematik yang mulus.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+          <h3>FMOD & Dolby Atmos</h3>
+          <p>Tata suara 3D spatial dan rekaman instrumen tradisional Nusantara untuk lanskap suara imersif.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Careers Section -->
+  <section class="section careers-section" id="careers">
+    <div class="container">
+      <div class="careers-wrapper">
+        <div class="section-header">
+          <span class="section-subtitle">BERGABUNGLAH DENGAN KAMI</span>
+          <h2 class="section-title">Wujudkan Impian Membuat <span class="gradient-text">Game Legendaris</span></h2>
+          <p class="section-desc">Kami selalu membuka pintu untuk talenta bertalenta: programmer, 3D artist, animator, dan komposer yang berani berinovasi.</p>
+        </div>
+
+        <div class="jobs-list">
+          <div class="job-item">
+            <div class="job-details">
+              <h4>Senior Unreal Engine C++ Programmer</h4>
+              <p><i class="fa-solid fa-location-dot"></i> Bandung / Hybrid • Full-time • Tech Division</p>
+            </div>
+            <button class="btn btn-outline btn-sm apply-btn" data-role="Senior Unreal Engine C++ Programmer">Lamar Posisi</button>
+          </div>
+
+          <div class="job-item">
+            <div class="job-details">
+              <h4>Senior 3D Environment & Foliage Artist</h4>
+              <p><i class="fa-solid fa-location-dot"></i> Jakarta / Remote • Full-time • Art Division</p>
+            </div>
+            <button class="btn btn-outline btn-sm apply-btn" data-role="Senior 3D Environment & Foliage Artist">Lamar Posisi</button>
+          </div>
+
+          <div class="job-item">
+            <div class="job-details">
+              <h4>Lead Combat & Level Designer</h4>
+              <p><i class="fa-solid fa-location-dot"></i> Bandung • Full-time • Design Division</p>
+            </div>
+            <button class="btn btn-outline btn-sm apply-btn" data-role="Lead Combat & Level Designer">Lamar Posisi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Publishing Inquiries -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-subtitle">HUBUNGI KAMI</span>
+          <h2 class="section-title">Mari Berkolaborasi & <span class="gradient-text">Membangun Karya</span></h2>
+          <p class="contact-text">
+            Apakah Anda publisher game internasional, investor, mitra brand, atau media? Kami terbuka untuk peluang kerja sama strategis.
+          </p>
+
+          <div class="contact-cards">
+            <div class="contact-box">
+              <i class="fa-solid fa-building"></i>
+              <div>
+                <h5>Kantor Studio Utama</h5>
+                <p>Jl. Dago Creative Valley No. 42, Bandung, Jawa Barat 40135</p>
+              </div>
+            </div>
+
+            <div class="contact-box">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <h5>Email Resmi</h5>
+                <p>halo@indokreasi.games / partnership@indokreasi.games</p>
+              </div>
+            </div>
+
+            <div class="contact-box">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <h5>Telepon Studio</h5>
+                <p>+62 (22) 8721-9988 / +62 811-2345-6789</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-icon" title="Steam Publisher Page"><i class="fa-brands fa-steam"></i></a>
+            <a href="#" class="social-icon" title="Discord Community"><i class="fa-brands fa-discord"></i></a>
+            <a href="#" class="social-icon" title="YouTube Trailer"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form id="contact-form" class="contact-form">
+            <h3>Kirimkan Pesan Anda</h3>
+            <p>Tim partnership kami akan membalas dalam kurun waktu 1x24 jam kerja.</p>
+
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" required placeholder="Contoh: Raden Wijaya">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Alamat Email</label>
+              <input type="email" id="email" required placeholder="nama@perusahaan.com">
+            </div>
+
+            <div class="form-group">
+              <label for="category">Tujuan Kolaborasi</label>
+              <select id="category" required>
+                <option value="publishing">Publishing & Distribusi Game</option>
+                <option value="investment">Pendanaan & Investasi</option>
+                <option value="media">Wawancara Media & Pers</option>
+                <option value="careers">Pertanyaan Karir / Portofolio</option>
+                <option value="other">Kerjasama Lainnya</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Pesan Anda</label>
+              <textarea id="message" rows="4" required placeholder="Tuliskan gambaran proyek atau pertanyaan Anda di sini..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+              <i class="fa-solid fa-paper-plane"></i> Kirim Pesan Sekarang
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
+            <span class="brand-name">PT INDO KREASI</span>
+          </div>
+          <p>Studio pengembang game mandiri yang berdedikasi mengangkat keagungan budaya Indonesia ke pentas industri interaktif global.</p>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Navigasi</h5>
+          <ul>
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#games">Game Kami</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#tech">Teknologi</a></li>
+            <li><a href="#careers">Karir</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Ekosistem</h5>
+          <ul>
+            <li><a href="#">Press Kit Studio</a></li>
+            <li><a href="#">Steam Community</a></li>
+            <li><a href="#">Brand Guidelines</a></li>
+            <li><a href="#">Kebijakan Privasi</a></li>
+            <li><a href="#">Syarat Layanan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h5>Newsletter Gamer</h5>
+          <p>Dapatkan kabar rilis terbaru, giveaway kode Steam, dan akses alpha testing eksklusif.</p>
+          <form id="newsletter-form" class="newsletter-form">
+            <input type="email" placeholder="Email Anda..." required>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 PT Indo Kreasi. Seluruh Hak Cipta Dilindungi Undang-Undang. Dibuat dengan cinta di Bandung & Jakarta, Indonesia.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Detail Game -->
+  <div class="modal" id="game-modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-body" id="modal-body">
+        <!-- Content injected dynamically via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Showreel Video -->
+  <div class="modal" id="showreel-modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container showreel-container">
+      <button class="modal-close" id="showreel-close" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+      <div class="showreel-content">
+        <div class="video-mockup">
+          <div class="video-badge"><i class="fa-solid fa-play"></i> PT INDO KREASI SHOWREEL 2026</div>
+          <img src="assets/nusantara.jpg" alt="Showreel Trailer Preview" class="video-preview-img">
+          <div class="video-overlay-ctrl">
+            <div class="play-pulse"><i class="fa-solid fa-play"></i></div>
+            <p>Trailer Sinematik & Gameplay Montage (Unreal Engine 5)</p>
+            <div class="video-tech-pills">
+              <span>4K 60FPS</span>
+              <span>Ray Tracing ON</span>
+              <span>Dolby Atmos Spatial Audio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
